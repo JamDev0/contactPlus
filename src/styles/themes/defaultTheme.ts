@@ -20,5 +20,8 @@ export const defaultTheme = {
     },
     white: "#FFFFFF",
     black: "#070707",
+  },
+  sizes: {
+    app: '75rem'
   }
 } as const
