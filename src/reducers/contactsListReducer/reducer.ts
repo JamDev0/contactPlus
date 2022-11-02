@@ -5,7 +5,7 @@ interface contactsData {
   id: number
   name: string
   email: string
-  phone: number
+  phone: string
 }
 
 export interface contactsListState {
