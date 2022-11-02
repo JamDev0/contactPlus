@@ -1,14 +1,15 @@
-import { SearchContactFormContainer, SearchContactFormQueryInput, SubmitSearchContactFormBtn } from "./styles";
+import { CancelSearchBtn, SearchContactFormContainer, SearchContactFormQueryInput, SubmitSearchContactFormBtn } from "./styles";
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { useForm } from 'react-hook-form'
 
 import * as z from 'zod'
-import { MagnifyingGlass } from "phosphor-react";
+import { MagnifyingGlass, X } from "phosphor-react";
 import { api } from "../../../../libs/axios";
 import { useContextSelector } from "use-context-selector";
 import { contactsListContext } from "../../../../hooks/useContactsList";
+import { useState } from "react";
 
 const searchContactFormSchema = z.object({
   query: z.string()
@@ -21,6 +22,8 @@ export function SearchContactForm() {
     resolver: zodResolver(searchContactFormSchema)
   })
 
+  const [isContactsQueried, setIsContactsQueried] = useState(false)
+
   const { setContactsList, setContactsListStatus } = useContextSelector(contactsListContext, context => {
     return {
       setContactsList: context.setContactsList,
@@ -31,6 +34,8 @@ export function SearchContactForm() {
   async function handleSearchContactFormSubmit(data: searchContactInputs) {
     setContactsListStatus('setting')
 
+    setIsContactsQueried(true)
+
     await api.get('contacts', {
       params: {
         name_like: data.query,
@@ -39,6 +44,20 @@ export function SearchContactForm() {
       }
     })
     .then(res => setContactsList(res.data))
+  }
+
+  async function handleCancelSearchBtnClick() {
+    setIsContactsQueried(false)
+    
+    setContactsListStatus('setting')
+    
+     await api.get('contacts', {
+        params: {
+          _sort: 'id',
+          _order: 'asc'
+        }
+      })
+      .then(res => setContactsList(res.data))
 
     reset()
   }
@@ -50,15 +69,32 @@ export function SearchContactForm() {
         type='text' 
         required 
         placeholder="Digite o nome do contato"
+        disabled={isSubmitting || isContactsQueried}
       />
 
-      <SubmitSearchContactFormBtn disabled={isSubmitting}>
-        <MagnifyingGlass />
+      {
+        isContactsQueried ? 
+        <CancelSearchBtn
+          onClick={e => {
+            e.preventDefault();
+            handleCancelSearchBtnClick()
+          }}
+          disabled={isSubmitting}
+        >
+          <X />
 
-        <span>
-          Buscar
-        </span>
-      </SubmitSearchContactFormBtn>
+          <span>Limpar</span>
+        </CancelSearchBtn>
+        :
+        <SubmitSearchContactFormBtn disabled={isSubmitting}>
+          <MagnifyingGlass />
+
+          <span>
+            Buscar
+          </span>
+        </SubmitSearchContactFormBtn>
+      }
+
     </SearchContactFormContainer>
   )
 }
