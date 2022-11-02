@@ -112,4 +112,9 @@ export const RegisterBnt = styled.button`
   :hover {
     background-color: ${params => params.theme.colors.green[200]};
   }
+
+  :disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `
