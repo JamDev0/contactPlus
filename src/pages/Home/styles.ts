@@ -43,6 +43,8 @@ export const FooterContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    padding-top: 1.5rem;
+
     border: 0;
     border-top: 1px solid ${params => params.theme.colors.gray['200']};
 
