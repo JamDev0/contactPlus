@@ -15,7 +15,13 @@ const { contactsList, contactsListStatus, setContactsList, setContactsListStatus
   useEffect(() => {
     if(contactsListStatus === 'unset') {
       setContactsListStatus('setting')
-      api.get('contacts?_sort=id&_order=asc').then(res => setContactsList(res.data))
+      api.get('contacts', {
+        params: {
+          _sort: 'id',
+          _order: 'asc'
+        }
+      })
+      .then(res => setContactsList(res.data))
     }
   }, [contactsListStatus])
 
