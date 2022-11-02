@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useContextSelector } from "use-context-selector";
 import { contactsListContext } from "../../../../hooks/useContactsList";
 import { api } from "../../../../libs/axios";
-import { BaseCell, Body, BodyTr, ContactsTableContainer, EmailCell, HeadTr, NameCell } from "./styles";
+import { BaseCell, Body, BodyTr, ContactsTableContainer, CustomLoadingFeedback, HeadTr, LoadingFeedbackContainer, NameCell } from "./styles";
+import { NoContactsFeedback } from './components/NoContactsFeedback'
 
 export function ContactsTable() {
 const { contactsList, contactsListStatus, setContactsList, setContactsListStatus } = useContextSelector(contactsListContext, context => { return {
@@ -26,35 +27,46 @@ const { contactsList, contactsListStatus, setContactsList, setContactsListStatus
   }, [contactsListStatus])
 
   return (
-    <ContactsTableContainer>
-      <thead>
-        <HeadTr>
-          <NameCell>Nome</NameCell>
+    <>
+      {
+        contactsListStatus === 'set' ?
+          contactsList.length > 0 ?
+            <ContactsTableContainer>
+              <thead>
+                <HeadTr>
+                  <NameCell>Nome</NameCell>
 
-          <EmailCell>Email</EmailCell>
+                  <BaseCell>Email</BaseCell>
 
-          <BaseCell>Telefone</BaseCell>
-        </HeadTr>
-      </thead>
+                  <BaseCell>Telefone</BaseCell>
+                </HeadTr>
+              </thead>
 
-      <Body>
 
-        {
-          contactsListStatus === 'set' ? 
-            contactsList.map(({email, id, name, phone}) => {
-              return(
-                <BodyTr key={id}>
-                  <NameCell>{name}</NameCell>
-      
-                  <EmailCell>{email}</EmailCell>
-      
-                  <BaseCell>{phone}</BaseCell>
-                </BodyTr>
-              )
-            })
-          : <span>Loading...</span>
-        }
-      </Body>
-    </ContactsTableContainer>
+              <Body>
+                {
+                  contactsList.map(({email, id, name, phone}) => {
+                    return(
+                      <BodyTr key={id}>
+                        <NameCell>{name}</NameCell>
+            
+                        <BaseCell>{email}</BaseCell>
+            
+                        <BaseCell>{phone}</BaseCell>
+                      </BodyTr>
+                    )
+                  })
+                }
+              </Body>
+            </ContactsTableContainer>
+          :
+            <NoContactsFeedback />
+        : 
+        <LoadingFeedbackContainer>
+          <CustomLoadingFeedback />
+        </LoadingFeedbackContainer>
+      }
+    </>
+
   )
 }

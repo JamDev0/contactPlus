@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { LoadingFeedback } from "./components/LoadingFeedback";
 
 export const ContactsTableContainer = styled.table`
   width: 100%;
@@ -48,5 +49,14 @@ export const NameCell = styled(BaseCell)`
   flex: 3.2;
 `
 
-export const EmailCell = styled(BaseCell)`
+export const LoadingFeedbackContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+`
+
+export const CustomLoadingFeedback = styled(LoadingFeedback)`
+  width: 3.125rem;
+  height: 3.125rem;
 `
