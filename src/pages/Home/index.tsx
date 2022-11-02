@@ -1,16 +1,26 @@
+import { ContactsTable } from "./components/ContactsTable";
 import { Header } from "./components/Header";
 import { SearchContactForm } from "./components/SearchContactForm";
-import { HomeContainer } from "./styles";
+import { FooterContainer, HomeContainer, MainContainer } from "./styles";
 
 export function Home() {
   return (
-    <>
+    <HomeContainer>
       <Header />
-      <HomeContainer>
+      <MainContainer>
         <main>
           <SearchContactForm />
+
+          <ContactsTable />
         </main>
-      </HomeContainer>
-    </>
+      </MainContainer>
+      <FooterContainer>
+        <footer>
+          <span>
+            Developed by Pixel Wave
+          </span>
+        </footer>
+      </FooterContainer>
+    </HomeContainer>
   )
 }
