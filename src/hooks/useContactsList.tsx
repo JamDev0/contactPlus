@@ -3,15 +3,9 @@ import { createContext } from "use-context-selector";
 import { setContactsListAction, setContactsListStatusAction } from "../reducers/contactsListReducer/actions";
 import { contactsListReducer, contactsListState } from "../reducers/contactsListReducer/reducer";
 
-interface contactListData {
-  name: string
-  email: string
-  phone: number
-}
-
 interface contactsListContextValues {
-  ContactsList: contactsListState['list']
-  ContactsStatus: contactsListState['status']
+  contactsList: contactsListState['list']
+  contactsStatus: contactsListState['status']
   setContactsList: (lits: contactsListState['list']) => void
   setContactsListStatus: (status: contactsListState['status']) => void
 }
@@ -30,9 +24,9 @@ const contactsListInitialState: contactsListState = {
 export function ContactsListProvider({ children }: ContactsListProviderProps) {
   const [{ status, list }, dispatch] = useReducer(contactsListReducer, contactsListInitialState)
 
-  const ContactsList = list
+  const contactsList = list
 
-  const ContactsStatus = status
+  const contactsStatus = status
 
   function setContactsList(list: contactsListState['list']) {
     dispatch(setContactsListAction(list))
@@ -43,7 +37,7 @@ export function ContactsListProvider({ children }: ContactsListProviderProps) {
   }  
 
   return (
-    <contactsListContext.Provider value={{ ContactsList, ContactsStatus, setContactsList, setContactsListStatus }}>
+    <contactsListContext.Provider value={{ contactsList, contactsStatus, setContactsList, setContactsListStatus }}>
       {children}
     </contactsListContext.Provider>
   )
