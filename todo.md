@@ -2,8 +2,8 @@
 
 [] - Um meio do usuario resetar a pesquisa e voltar para a tabela completa
 
-[] - Feedback de nenhum contato encontrado
-
-[] - Melhorar o feedback de loading
+[] - Adicionar feedback no formulário de criação de contato
 
 [] - Procurar por erros de lint e de typescript
+
+[] - Verificar se as fontes estão do mesmo tamanho
