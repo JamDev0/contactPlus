@@ -59,4 +59,10 @@ export const SubmitSearchContactFormBtn = styled.button`
 
     color: ${params => params.theme.colors.white};
   }
+
+  :disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+  }
 `

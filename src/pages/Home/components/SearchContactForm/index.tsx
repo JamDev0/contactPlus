@@ -6,6 +6,9 @@ import { useForm } from 'react-hook-form'
 
 import * as z from 'zod'
 import { MagnifyingGlass } from "phosphor-react";
+import { api } from "../../../../libs/axios";
+import { useContextSelector } from "use-context-selector";
+import { contactsListContext } from "../../../../hooks/useContactsList";
 
 const searchContactFormSchema = z.object({
   query: z.string()
@@ -14,19 +17,42 @@ const searchContactFormSchema = z.object({
 type searchContactInputs = z.infer<typeof searchContactFormSchema>
 
 export function SearchContactForm() {
-  const { register, handleSubmit } = useForm<searchContactInputs>({
+  const { register, handleSubmit, reset, formState: {isSubmitting} } = useForm<searchContactInputs>({
     resolver: zodResolver(searchContactFormSchema)
   })
 
-  function handleSearchContactFormSubmit(data: searchContactInputs) {
+  const { setContactsList, setContactsListStatus } = useContextSelector(contactsListContext, context => {
+    return {
+      setContactsList: context.setContactsList,
+      setContactsListStatus: context.setContactsListStatus,
+    }
+  })
 
+  async function handleSearchContactFormSubmit(data: searchContactInputs) {
+    setContactsListStatus('setting')
+
+    await api.get('contacts', {
+      params: {
+        name_like: data.query,
+        _sort: 'id',
+        _order: 'asc'
+      }
+    })
+    .then(res => setContactsList(res.data))
+
+    reset()
   }
 
   return(
     <SearchContactFormContainer onSubmit={handleSubmit(handleSearchContactFormSubmit)}>
-      <SearchContactFormQueryInput type='text' required placeholder="Digite o nome do contato"></SearchContactFormQueryInput>
+      <SearchContactFormQueryInput
+        {...register('query')} 
+        type='text' 
+        required 
+        placeholder="Digite o nome do contato"
+      />
 
-      <SubmitSearchContactFormBtn>
+      <SubmitSearchContactFormBtn disabled={isSubmitting}>
         <MagnifyingGlass />
 
         <span>
