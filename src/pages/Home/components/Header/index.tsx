@@ -1,5 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 
+import { useState } from 'react';
+
 import { NewContactDialog } from './NewContactDialog'
 
 import { AddressBook } from "phosphor-react";
@@ -7,6 +9,8 @@ import { AddressBook } from "phosphor-react";
 import { AppLogoContainer, HeaderContainer, NewContactButton } from "./styles";
 
 export function  Header() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
   return (
     <HeaderContainer>
       <header>
@@ -16,12 +20,12 @@ export function  Header() {
           <span>Contact +</span>
         </AppLogoContainer>
 
-        <Dialog.Root>
+        <Dialog.Root open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <Dialog.Trigger asChild>
             <NewContactButton>Novo contato</NewContactButton>
           </Dialog.Trigger>
           
-          <NewContactDialog />
+          <NewContactDialog setDialogIsOpenState={setIsDialogOpen} />
         </Dialog.Root>
       </header>
     </HeaderContainer>
