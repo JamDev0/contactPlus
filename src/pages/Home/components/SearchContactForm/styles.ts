@@ -28,6 +28,12 @@ export const SearchContactFormQueryInput = styled.input`
   ::placeholder {
     color: ${(params) => params.theme.colors.gray[500]};
   }
+
+  :disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+  }
 `
 
 export const SubmitSearchContactFormBtn = styled.button`
