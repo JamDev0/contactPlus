@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SearchContactFormContainer = styled.form`
   width: 100%;
@@ -21,12 +21,12 @@ export const SearchContactFormQueryInput = styled.input`
 
   font-size: 1rem;
 
-  background-color: ${params => params.theme.colors.gray[900]};
+  background-color: ${(params) => params.theme.colors.gray[900]};
 
   color-scheme: dark;
 
   ::placeholder {
-    color: ${params => params.theme.colors.gray[500]};
+    color: ${(params) => params.theme.colors.gray[500]};
   }
 `
 
@@ -40,10 +40,10 @@ export const SubmitSearchContactFormBtn = styled.button`
 
   padding-inline: 1rem;
 
-  border: 1px solid ${params => params.theme.colors.green[200]};
+  border: 1px solid ${(params) => params.theme.colors.green[200]};
   border-radius: 6px;
 
-  color: ${params => params.theme.colors.green[200]};
+  color: ${(params) => params.theme.colors.green[200]};
   font-size: 1rem;
   font-weight: bold;
 
@@ -59,9 +59,9 @@ export const SubmitSearchContactFormBtn = styled.button`
   }
 
   :not(:disabled):hover {
-    background-color: ${params => params.theme.colors.green[200]};
+    background-color: ${(params) => params.theme.colors.green[200]};
 
-    color: ${params => params.theme.colors.white};
+    color: ${(params) => params.theme.colors.white};
   }
 
   :disabled {
@@ -81,10 +81,10 @@ export const CancelSearchBtn = styled.button`
 
   padding-inline: 1rem;
 
-  border: 1px solid ${params => params.theme.colors.red[200]};
+  border: 1px solid ${(params) => params.theme.colors.red[200]};
   border-radius: 6px;
 
-  color: ${params => params.theme.colors.red[200]};
+  color: ${(params) => params.theme.colors.red[200]};
   font-size: 1rem;
   font-weight: bold;
 
@@ -100,9 +100,9 @@ export const CancelSearchBtn = styled.button`
   }
 
   :not(:disabled):hover {
-    background-color: ${params => params.theme.colors.red[200]};
+    background-color: ${(params) => params.theme.colors.red[200]};
 
-    color: ${params => params.theme.colors.white};
+    color: ${(params) => params.theme.colors.white};
   }
 
   :disabled {

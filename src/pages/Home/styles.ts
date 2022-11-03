@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ export const MainContainer = styled.div`
   padding: 3.75rem 3rem;
 
   > main {
-    max-width: ${params => params.theme.sizes.app};
+    max-width: ${(params) => params.theme.sizes.app};
     width: 100%;
   }
 `
@@ -37,7 +37,7 @@ export const FooterContainer = styled.div`
   margin-bottom: 3.125rem;
 
   > footer {
-    max-width: ${params => params.theme.sizes.app};
+    max-width: ${(params) => params.theme.sizes.app};
     width: 100%;
 
     display: flex;
@@ -46,9 +46,9 @@ export const FooterContainer = styled.div`
     padding-top: 1.5rem;
 
     border: 0;
-    border-top: 1px solid ${params => params.theme.colors.gray['200']};
+    border-top: 1px solid ${(params) => params.theme.colors.gray['200']};
 
     font-size: 1rem;
-    color: ${params => params.theme.colors.gray['200']};
+    color: ${(params) => params.theme.colors.gray['200']};
   }
 `

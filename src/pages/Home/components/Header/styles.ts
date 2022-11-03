@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -12,11 +12,11 @@ export const HeaderContainer = styled.div`
 
   padding-inline: 3rem;
 
-  background-color: ${params => params.theme.colors.gray[900]};
+  background-color: ${(params) => params.theme.colors.gray[900]};
 
   > header {
     width: 100%;
-    max-width: ${params => params.theme.sizes.app};
+    max-width: ${(params) => params.theme.sizes.app};
 
     display: flex;
     align-items: center;
@@ -31,13 +31,13 @@ export const AppLogoContainer = styled.div`
 
   font-weight: bold;
   font-size: 1.6rem;
-  color: ${params => params.theme.colors.gray[100]};
+  color: ${(params) => params.theme.colors.gray[100]};
 
   > svg {
     font-size: 3.125rem;
     line-height: 0;
 
-    color: ${params => params.theme.colors.green[400]};
+    color: ${(params) => params.theme.colors.green[400]};
   }
 `
 
@@ -47,17 +47,17 @@ export const NewContactButton = styled.button`
   border-radius: 6px;
   border: 0;
 
-  background-color: ${params => params.theme.colors.green[400]};
+  background-color: ${(params) => params.theme.colors.green[400]};
 
   font-weight: bold;
   font-size: 1rem;
-  color: ${params => params.theme.colors.white};
+  color: ${(params) => params.theme.colors.white};
 
   transition: background-color 300ms ease-in-out;
 
   cursor: pointer;
 
   :hover {
-    background-color: ${params => params.theme.colors.green[200]};
+    background-color: ${(params) => params.theme.colors.green[200]};
   }
 `

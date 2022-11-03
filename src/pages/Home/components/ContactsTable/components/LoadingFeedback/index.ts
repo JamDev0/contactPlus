@@ -1,6 +1,6 @@
-import { CircleNotch } from "phosphor-react";
+import { CircleNotch } from 'phosphor-react'
 
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components'
 
 const animation = keyframes`
   0% {
@@ -14,7 +14,7 @@ const animation = keyframes`
 
 export const LoadingFeedback = styled(CircleNotch)`
   animation: ${animation};
-  animation-timing-function: cubic-bezier(0.625, -0.320, 0.375, 1.320);;
+  animation-timing-function: cubic-bezier(0.625, -0.32, 0.375, 1.32);
   animation-duration: 850ms;
   animation-iteration-count: infinite;
 

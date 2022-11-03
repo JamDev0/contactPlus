@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { LoadingFeedback } from "./components/LoadingFeedback";
+import styled from 'styled-components'
+import { LoadingFeedback } from './components/LoadingFeedback'
 
 export const ContactsTableContainer = styled.table`
   width: 100%;
@@ -11,30 +11,30 @@ export const ContactsTableContainer = styled.table`
 
 export const HeadTr = styled.tr`
   width: 100%;
-  
+
   display: flex;
   column-gap: 0.5rem;
 
   padding: 0.5rem 2rem;
 
-  color: ${params => params.theme.colors.gray[500]};
+  color: ${(params) => params.theme.colors.gray[500]};
 `
 
 export const Body = styled.tbody`
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
-  `
+`
 
 export const BodyTr = styled.tr`
   width: 100%;
-  
+
   display: flex;
   column-gap: 0.5rem;
 
   padding: 1.25rem 2rem;
 
-  background-color: ${params => params.theme.colors.gray['700']};
+  background-color: ${(params) => params.theme.colors.gray['700']};
 
   border-radius: 5px;
 `

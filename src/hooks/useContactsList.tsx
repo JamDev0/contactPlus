@@ -1,7 +1,16 @@
-import { ReactNode, useReducer } from "react";
-import { createContext } from "use-context-selector";
-import { setContactsListAction, setContactsListStatusAction } from "../reducers/contactsListReducer/actions";
-import { contactsListReducer, contactsListState } from "../reducers/contactsListReducer/reducer";
+import { ReactNode, useReducer } from 'react'
+
+import { createContext } from 'use-context-selector'
+
+import {
+  setContactsListAction,
+  setContactsListStatusAction,
+} from '../reducers/contactsListReducer/actions'
+
+import {
+  contactsListReducer,
+  contactsListState,
+} from '../reducers/contactsListReducer/reducer'
 
 interface contactsListContextValues {
   contactsList: contactsListState['list']
@@ -10,7 +19,9 @@ interface contactsListContextValues {
   setContactsListStatus: (status: contactsListState['status']) => void
 }
 
-export const contactsListContext = createContext<contactsListContextValues>({} as contactsListContextValues)
+export const contactsListContext = createContext<contactsListContextValues>(
+  {} as contactsListContextValues,
+)
 
 interface ContactsListProviderProps {
   children: ReactNode
@@ -18,11 +29,14 @@ interface ContactsListProviderProps {
 
 const contactsListInitialState: contactsListState = {
   list: [],
-  status: 'unset'
+  status: 'unset',
 }
 
 export function ContactsListProvider({ children }: ContactsListProviderProps) {
-  const [{ status, list }, dispatch] = useReducer(contactsListReducer, contactsListInitialState)
+  const [{ status, list }, dispatch] = useReducer(
+    contactsListReducer,
+    contactsListInitialState,
+  )
 
   const contactsList = list
 
@@ -34,10 +48,17 @@ export function ContactsListProvider({ children }: ContactsListProviderProps) {
 
   function setContactsListStatus(status: contactsListState['status']) {
     dispatch(setContactsListStatusAction(status))
-  }  
+  }
 
   return (
-    <contactsListContext.Provider value={{ contactsList, contactsStatus, setContactsList, setContactsListStatus }}>
+    <contactsListContext.Provider
+      value={{
+        contactsList,
+        contactsStatus,
+        setContactsList,
+        setContactsListStatus,
+      }}
+    >
       {children}
     </contactsListContext.Provider>
   )

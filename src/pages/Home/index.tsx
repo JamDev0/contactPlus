@@ -1,7 +1,10 @@
-import { ContactsTable } from "./components/ContactsTable";
-import { Header } from "./components/Header";
-import { SearchContactForm } from "./components/SearchContactForm";
-import { FooterContainer, HomeContainer, MainContainer } from "./styles";
+import { ContactsTable } from './components/ContactsTable'
+
+import { Header } from './components/Header'
+
+import { SearchContactForm } from './components/SearchContactForm'
+
+import { FooterContainer, HomeContainer, MainContainer } from './styles'
 
 export function Home() {
   return (
@@ -16,9 +19,7 @@ export function Home() {
       </MainContainer>
       <FooterContainer>
         <footer>
-          <span>
-            Developed by Pixel Wave
-          </span>
+          <span>Developed by Pixel Wave</span>
         </footer>
       </FooterContainer>
     </HomeContainer>

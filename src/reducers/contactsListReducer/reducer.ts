@@ -1,5 +1,6 @@
-import produce from "immer";
-import { actionTypes } from "./actions";
+import produce from 'immer'
+
+import { actionTypes } from './actions'
 
 interface contactsData {
   id: number
@@ -14,9 +15,9 @@ export interface contactsListState {
 }
 
 export function contactsListReducer(state: contactsListState, action: any) {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.SET_CONTACTS_LIST: {
-      return produce(state, draft => {
+      return produce(state, (draft) => {
         draft.list = action.payload
 
         draft.status = 'set'
@@ -24,7 +25,7 @@ export function contactsListReducer(state: contactsListState, action: any) {
     }
 
     case actionTypes.SET_CONTACTS_LIST_STATS: {
-      return produce(state, draft => {
+      return produce(state, (draft) => {
         draft.status = action.payload
       })
     }

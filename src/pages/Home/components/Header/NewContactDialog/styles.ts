@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const DialogOverlay = styled.div`
   position: absolute;
@@ -25,14 +25,14 @@ export const DialogContentContainer = styled.div`
 
   > section {
     position: relative;
-    
+
     min-width: 33.5rem;
-    
+
     padding: 3rem;
 
     border-radius: 6px;
 
-    background-color: ${params => params.theme.colors.gray[800]};
+    background-color: ${(params) => params.theme.colors.gray[800]};
 
     box-shadow: 0px 4px 32px rgb(0, 0, 0, 0.8);
   }
@@ -57,7 +57,7 @@ export const CloseDialogBtn = styled.button`
     line-height: 0;
     font-size: 1.5rem;
 
-    color: ${params => params.theme.colors.gray[500]}
+    color: ${(params) => params.theme.colors.gray[500]};
   }
 `
 
@@ -65,7 +65,7 @@ export const DialogTitle = styled.h1`
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 140%;
-  color: ${params => params.theme.colors.gray[100]};
+  color: ${(params) => params.theme.colors.gray[100]};
 
   margin-bottom: 2rem;
 `
@@ -82,20 +82,20 @@ export const Input = styled.input`
   padding: 1rem;
 
   line-height: 140%;
-  
+
   border: 0;
   border-radius: 6px;
-  
-  background-color: ${params => params.theme.colors.gray['900']};
-  
+
+  background-color: ${(params) => params.theme.colors.gray['900']};
+
   ::placeholder {
-    color: ${params => params.theme.colors.gray[500]};
+    color: ${(params) => params.theme.colors.gray[500]};
   }
 
-  &[aria-error="true"] {
+  &[aria-error='true'] {
     box-shadow: none;
 
-    outline: 1px solid${params => params.theme.colors.red[200]};
+    outline: 1px solid ${(params) => params.theme.colors.red[200]};
   }
 `
 
@@ -103,14 +103,14 @@ export const RegisterBnt = styled.button`
   width: 100%;
 
   font-weight: bold;
-  color: ${params => params.theme.colors.white};
+  color: ${(params) => params.theme.colors.white};
 
   padding: 1rem;
 
   border: 0;
   border-radius: 6px;
 
-  background-color: ${params => params.theme.colors.green[400]};
+  background-color: ${(params) => params.theme.colors.green[400]};
 
   margin-top: 2.5rem;
 
@@ -119,7 +119,7 @@ export const RegisterBnt = styled.button`
   transition: background-color 300ms ease-in-out;
 
   :not(:disabled):hover {
-    background-color: ${params => params.theme.colors.green[200]};
+    background-color: ${(params) => params.theme.colors.green[200]};
   }
 
   :disabled {
@@ -129,5 +129,5 @@ export const RegisterBnt = styled.button`
 `
 
 export const InputErrorMessage = styled.p`
-  color: ${params => params.theme.colors.red[200]};
+  color: ${(params) => params.theme.colors.red[200]};
 `
