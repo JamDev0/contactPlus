@@ -82,12 +82,21 @@ export const Input = styled.input`
   padding: 1rem;
 
   line-height: 140%;
-  color: ${params => params.theme.colors.gray[500]};
-
+  
   border: 0;
   border-radius: 6px;
-
+  
   background-color: ${params => params.theme.colors.gray['900']};
+  
+  ::placeholder {
+    color: ${params => params.theme.colors.gray[500]};
+  }
+
+  &[aria-error="true"] {
+    box-shadow: none;
+
+    outline: 1px solid${params => params.theme.colors.red[200]};
+  }
 `
 
 export const RegisterBnt = styled.button`
@@ -109,7 +118,7 @@ export const RegisterBnt = styled.button`
 
   transition: background-color 300ms ease-in-out;
 
-  :hover {
+  :not(:disabled):hover {
     background-color: ${params => params.theme.colors.green[200]};
   }
 
@@ -117,4 +126,8 @@ export const RegisterBnt = styled.button`
     opacity: 0.7;
     cursor: not-allowed;
   }
+`
+
+export const InputErrorMessage = styled.p`
+  color: ${params => params.theme.colors.red[200]};
 `
