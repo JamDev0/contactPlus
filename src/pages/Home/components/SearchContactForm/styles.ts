@@ -19,7 +19,7 @@ export const SearchContactFormQueryInput = styled.input`
   border: 0;
   border-radius: 6px;
 
-  font-size: 16px;
+  font-size: 1rem;
 
   background-color: ${params => params.theme.colors.gray[900]};
 
