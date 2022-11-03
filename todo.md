@@ -1,5 +1,3 @@
-[] - Dar um jeito na celula de telefone da tabela, já que ela não esta ficando no final da linha
+[] - Posicionar a célula de numero de telefone no final da linha(sem ideias)
 
 [] - Procurar por erros de lint e de typescript
-
-[] - Verificar se as fontes estão do mesmo tamanho
