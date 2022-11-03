@@ -54,7 +54,7 @@ export function SearchContactForm() {
      await api.get('contacts', {
         params: {
           _sort: 'id',
-          _order: 'asc'
+          _order: 'desc'
         }
       })
       .then(res => setContactsList(res.data))
